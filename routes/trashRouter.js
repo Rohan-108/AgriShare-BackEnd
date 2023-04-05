@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getPostBySearch,
   getAllTrash,
   createTrash,
   deleteTrash,
@@ -9,6 +10,7 @@ import {
 import protect from "../middleware/authMiddleware.js";
 const router = express.Router();
 router.route("/").get(getAllTrash);
+router.route("/search").get(getPostBySearch);
 router.route("/").post(protect, createTrash);
 router.route("/:id").get(getOneTrash);
 router.route("/:id").delete(protect, deleteTrash);

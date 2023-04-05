@@ -6,6 +6,8 @@ import trashRouter from "../mess-server/routes/trashRouter.js";
 import userRouter from "../mess-server/routes/userRouter.js";
 const app = express();
 dotenv.config();
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.get("/", (req, res) => {

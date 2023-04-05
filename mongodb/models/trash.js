@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 const TrashSchema = new mongoose.Schema(
   {
-    desp: { type: String, required: true },
-    summary: { type: String, required: true },
+    title: String,
+    creator: String,
+    name: String,
+    tags: [String],
+    selectedFile: String,
   },
   { timestamps: true }
 );
