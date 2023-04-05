@@ -21,8 +21,13 @@ export const createTrash = async (req, res) => {
   }
 };
 export const getOneTrash = async (req, res) => {
+  const { id } = req.params;
   try {
-  } catch (error) {}
+    const trash = await Trash.find(id);
+    res.status(200).json(trash);
+  } catch (error) {
+    res.status(500).json({ message: "something went wrong" });
+  }
 };
 export const deleteTrash = async (req, res) => {
   const { id } = req.params;
