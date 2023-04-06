@@ -1,4 +1,3 @@
-import User from "../mongodb/models/user.js";
 import Trash from "../mongodb/models/trash.js";
 import mongoose from "mongoose";
 
@@ -21,12 +20,11 @@ export const createTrash = async (req, res) => {
   }
 };
 export const getOneTrash = async (req, res) => {
-  const { id } = req.params;
   try {
-    const trash = await Trash.find(id);
+    const trash = await Trash.findById(req.params.id);
     res.status(200).json(trash);
   } catch (error) {
-    res.status(500).json({ message: "something went wrong" });
+    res.status(500).json(error.message);
   }
 };
 export const deleteTrash = async (req, res) => {
@@ -35,26 +33,28 @@ export const deleteTrash = async (req, res) => {
     return res.status(404).json({ message: "id not correct" });
   try {
     await Trash.findByIdAndDelete(id);
+    return res.status(200).json({ message: "item deleted" });
   } catch (error) {
     res.status(500).json({ message: "something went wrong" });
   }
 };
 export const updateTrash = async (req, res) => {
-  const { id: _id } = req.params;
+  const { id } = req.params;
   const trash = req.body;
-  if (!mongoose.Types.ObjectId.isValid(_id))
+  console.log(trash);
+  if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).json({ message: "id not correct" });
   try {
     const updatedTrash = await Trash.findByIdAndUpdate(
-      _id,
-      { ...trash, _id },
+      id,
+      { trash },
       {
         new: true,
       }
     );
     res.status(200).json(updatedTrash);
   } catch (error) {
-    res.status(500).json({ message: "something went wrong" });
+    res.status(500).json(error.message);
   }
 };
 

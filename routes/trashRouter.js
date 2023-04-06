@@ -14,5 +14,5 @@ router.route("/search").get(getPostBySearch);
 router.route("/").post(protect, createTrash);
 router.route("/:id").get(getOneTrash);
 router.route("/:id").delete(protect, deleteTrash);
-router.route("/:id").patch(protect, updateTrash);
+router.route("/:id").put(protect, updateTrash);
 export default router;

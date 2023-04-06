@@ -17,14 +17,14 @@ const userSchema = new mongoose.Schema(
         message: (props) => `Email${props.value} is invalid!`,
       },
     },
-    password: { type: String, required: true },
+    pass: { type: String, required: true },
     pic: {
       type: String,
       default: "https://cdn-icons-png.flaticon.com/512/64/64572.png",
     },
-    location: { type: String, required: true },
-    company: { type: String, required: true },
-    designation: { type: String, required: true },
+    loc: { type: String, required: true },
+    ComName: { type: String, required: true },
+    Desig: { type: String, required: true },
   },
   { timestamps: true }
 );

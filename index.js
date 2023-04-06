@@ -1,9 +1,10 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
+import bodyParser from "body-parser";
 import connectDB from "./mongodb/connect.js";
-import trashRouter from "../mess-server/routes/trashRouter.js";
-import userRouter from "../mess-server/routes/userRouter.js";
+import trashRouter from "./routes/trashRouter.js";
+import userRouter from "./routes/userRouter.js";
 const app = express();
 dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
