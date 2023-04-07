@@ -3,8 +3,8 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import connectDB from "./mongodb/connect.js";
-import trashRouter from "./routes/trashRouter.js";
 import userRouter from "./routes/userRouter.js";
+import trashRouter from "./routes/trashRouter.js";
 const app = express();
 dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -14,9 +14,8 @@ app.use(express.json({ limit: "50mb" }));
 app.get("/", (req, res) => {
   res.send({ message: "hello world" });
 });
-
-app.use("/api/v1/trash", trashRouter);
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/trash", trashRouter);
 
 const startServer = async () => {
   try {

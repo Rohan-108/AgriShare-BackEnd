@@ -22,9 +22,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://cdn-icons-png.flaticon.com/512/64/64572.png",
     },
-    loc: { type: String, required: true },
-    ComName: { type: String, required: true },
-    Desig: { type: String, required: true },
+    isFarmer: { type: Boolean, required: true },
   },
   { timestamps: true }
 );

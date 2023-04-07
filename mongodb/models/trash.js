@@ -5,9 +5,6 @@ const TrashSchema = new mongoose.Schema(
     company: { type: String, required: true },
     creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     location: { type: String, required: true },
-    tags: [String],
-    price: { type: String, required: true },
-    selectedFile: String,
     pic: {
       type: String,
       default:
@@ -18,5 +15,5 @@ const TrashSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const trashModel = mongoose.model("Trash", TrashSchema);
+const trashModel = mongoose.model("Request", TrashSchema);
 export default trashModel;
