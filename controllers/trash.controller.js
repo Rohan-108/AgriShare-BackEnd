@@ -21,7 +21,7 @@ export const createTrash = async (req, res) => {
 };
 export const getOneTrash = async (req, res) => {
   try {
-    const trash = await Trash.findById(req.params.id);
+    const trash = await Trash.findById(req.params.id).populate("creator");
     res.status(200).json(trash);
   } catch (error) {
     res.status(500).json(error.message);

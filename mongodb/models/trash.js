@@ -8,6 +8,12 @@ const TrashSchema = new mongoose.Schema(
     tags: [String],
     price: { type: String, required: true },
     selectedFile: String,
+    pic: {
+      type: String,
+      default:
+        "https://images.pexels.com/photos/1730341/pexels-photo-1730341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    details: { type: String, required: true },
   },
   { timestamps: true }
 );
