@@ -2,9 +2,11 @@ import mongoose from "mongoose";
 const TrashSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    company: { type: String, required: true },
+    company: { type: String },
     creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    createdby: { type: String, required: true },
     location: { type: String, required: true },
+    number: { type: String, required: true },
     pic: {
       type: String,
       default:
