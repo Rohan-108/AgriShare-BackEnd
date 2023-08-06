@@ -16,11 +16,11 @@ app.get("/", (req, res) => {
 });
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/trash", trashRouter);
-
+const PORT=5000;
 const startServer = async () => {
   try {
     connectDB(process.env.MONGODB_URL);
-    app.listen(5000, () =>
+    app.listen(PORT, () =>
       console.log("server started at http://localhost:5000")
     );
   } catch (error) {
